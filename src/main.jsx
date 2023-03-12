@@ -4,12 +4,15 @@ import App from "./App";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./index.css";
-import MovieContextProvider from "./context/MovieContext";
+import MovieContextProvider from "./context/movies/MovieContext";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <MovieContextProvider>
-      <App />
-    </MovieContextProvider>
+    <BrowserRouter>
+      <MovieContextProvider>
+        <App />
+      </MovieContextProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

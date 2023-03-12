@@ -1,16 +1,21 @@
-import { useContext } from "react";
-import { Header } from "./components";
-import { MovieContext } from "./context/MovieContext";
-
+import { Header, MoviesList, Pagination, MovieElement } from "./components";
+import { Routes, Route } from "react-router-dom";
 function App() {
-  const { Movies } = useContext(MovieContext);
   return (
     <div className="App">
-      <Header />
-      {Movies.results.map((ele, idx) => {
-        return <h1>{ele.title}</h1>;
-      })}
-      {console.log(Movies.results)}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <MoviesList />
+              <Pagination />
+            </>
+          }
+        />
+        <Route path="/movie/:id" element={<MovieElement />} />
+      </Routes>
     </div>
   );
 }
